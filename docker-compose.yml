@@ -8,3 +8,15 @@ services:
       POSTGRES_DB: gorm
     ports:
       - 5432:5432
+  app:
+    container_name: go_api
+    build: 
+      context: .
+      dockerfile: ./app/Dockerfile
+    volumes: 
+      - ./app:/usr/local/go/src/web/app
+    tty: true 
+    depends_on:
+      - db
+    ports:
+      - 8081:8080
