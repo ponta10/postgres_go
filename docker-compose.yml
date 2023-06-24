@@ -12,7 +12,7 @@ services:
     container_name: go_api
     build: 
       context: .
-      dockerfile: ./app/Dockerfile
+      dockerfile: ./docker/app/Dockerfile
     volumes: 
       - ./app:/usr/local/go/src/web/app
     tty: true 
