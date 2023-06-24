@@ -21,9 +21,12 @@ func main() {
 
 	fmt.Println("Connection Opened to Database")
 
+	// 自動マイグレーション
+	// Memoモデルの構造体の通りのスキーマを構築(id、content、created_at、updated_at、deleted_at)
 	db.AutoMigrate(&models.Memo{})
 
 	// モデルとコントローラの初期化
+	// モデルはデータベースとのやり取りを担当し、コントローラはクライアントからのリクエストを処理し、モデルを通じてデータベースとやり取りをします。
 	memoModel := models.NewMemoModel(db)
 	memoController := controllers.NewMemoController(memoModel)
 
