@@ -1,5 +1,6 @@
 package requests
 
+// contetnフィールドは必須
 type CreateMemoInput struct {
 	Content string `json:"content" binding:"required"`
 }
