@@ -9,6 +9,7 @@ import (
 
 	"postgres_go/controllers"
 	"postgres_go/models"
+	// "postgres_go/seeds"
 )
 
 func main() {
@@ -29,6 +30,11 @@ func main() {
 	// モデルはデータベースとのやり取りを担当し、コントローラはクライアントからのリクエストを処理し、モデルを通じてデータベースとやり取りをします。
 	memoModel := models.NewMemoModel(db)
 	memoController := controllers.NewMemoController(memoModel)
+
+	// シーダーを実行
+	// if err := seeds.Seeder(db); err != nil {
+	// 	fmt.Println("Seeder error:", err)
+	// }
 
 	// ルーティング設定
 	r := gin.Default()
